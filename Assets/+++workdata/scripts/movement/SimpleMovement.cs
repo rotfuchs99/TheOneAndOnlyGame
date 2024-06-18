@@ -15,8 +15,10 @@ public class SimpleMovement : MonoBehaviour
     private Vector3 v = new Vector3(0f, 0f, 0f);
 
     private Rigidbody2D rig;
+    [SerializeField] private CanvasGroup pauseMenu;
 
     private float movementValue;
+    [SerializeField] float lerpspeed;
 
     [SerializeField] float speed;
     [SerializeField] float jumpHeight;
@@ -41,7 +43,9 @@ public class SimpleMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rig.velocity = new Vector2(movementValue, rig.velocity.y);
+        //rig.velocity = new Vector2(movementValue, rig.velocity.y);
+        var targetSpeed = new Vector2(movementValue, rig.velocity.y);
+        rig.velocity = Vector2.Lerp(rig.velocity, targetSpeed, lerpspeed * Time.deltaTime);
 
         if (movementValue>0 && !isFacingRight)
         {
@@ -76,17 +80,12 @@ public class SimpleMovement : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(transformGroundCheck.position, 0.2f, layermaskGround))
         {
-            rig.velocity = new Vector2(0f, jumpHeight);
+            rig.velocity = new Vector2(rig.velocity.x, jumpHeight);
         }
         
         //Debug.Log("jump");
     }
 
-    void OnPauseMenu()
-    {
-        if (Time.timeScale != 0)
-        {
-            
-        }
-    }
+    
+    
 }

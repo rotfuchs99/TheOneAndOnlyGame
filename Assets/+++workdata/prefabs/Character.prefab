@@ -248,12 +248,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113eecdefb963794caf2ce2a520caf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  lerpspeed: 5
   speed: 10
-  jumpHeight: 12
+  jumpHeight: 32
   transformGroundCheck: {fileID: 7374646122208278212}
   layermaskGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isFacingRight: 1
 --- !u!50 &3172717952910425865
 Rigidbody2D:
@@ -270,7 +272,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

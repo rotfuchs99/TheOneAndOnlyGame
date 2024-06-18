@@ -31,9 +31,9 @@ public class UIController : MonoBehaviour
         //let time freeze - only input is working - no physics or updates
         Time.timeScale = 0f;
         
-        ShowCanvasGroup(canvasStart);
-        HideCanvasGroup(canvasWin);
-        HideCanvasGroup(canvasLost);
+        canvasStart.ShowCanvasGroup();
+        canvasWin.HideCanvasGroup();
+        canvasLost.HideCanvasGroup();
         
         buttonStartGame.onClick.AddListener(StartGame);
         buttonPlayAgain.onClick.AddListener(ReloadCurrentScene);
@@ -47,20 +47,20 @@ public class UIController : MonoBehaviour
     {
         //set timescale back to normal
         Time.timeScale = 1f;
-        HideCanvasGroup(canvasStart);
+        canvasStart.HideCanvasGroup();
     }
 
     public void GameLost()
     {
         Time.timeScale = 0f;
-        ShowCanvasGroup(canvasLost);
+        canvasLost.ShowCanvasGroup();
     }
 
     public void GameWin()
     {
         Time.timeScale = 0f;
         PlayerPrefs.SetInt(nameNextLevel,1);
-        ShowCanvasGroup(canvasWin);
+        canvasWin.ShowCanvasGroup();
     }
 
     void LoadNextLevel()
@@ -71,6 +71,7 @@ public class UIController : MonoBehaviour
     void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
+        Debug.Log(true);
     }
 
     void ReloadCurrentScene()
@@ -78,25 +79,13 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
-    void ShowCanvasGroup(CanvasGroup canvasGroup)
-    {
-        canvasGroup.alpha = 1f;
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
-    }
     
-    void HideCanvasGroup(CanvasGroup canvasGroup)
-    {
-        canvasGroup.alpha = 0f;
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
-    }
 
     public void StartGameButton()
     {
-        HideCanvasGroup(canvasStart);
-        HideCanvasGroup(canvasWin);
-        HideCanvasGroup(canvasLost);
+        canvasStart.HideCanvasGroup();
+        canvasWin.HideCanvasGroup();
+        canvasLost.HideCanvasGroup();
     }
     
     public void AddCoin()

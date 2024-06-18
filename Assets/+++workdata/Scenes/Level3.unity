@@ -3733,6 +3733,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 846086384196120825, guid: 3318f5693b1897d44829f47402202f94, type: 3}
+      propertyPath: nameNextLevel
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 846086384196120825, guid: 3318f5693b1897d44829f47402202f94, type: 3}
       propertyPath: buttonBackToMenu
       value: 
       objectReference: {fileID: 246778297}
@@ -5225,7 +5229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2942581798049798597, guid: b352b07420526b748a525bc8513c4463, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.5661125
+      value: -13.566101
       objectReference: {fileID: 0}
     - target: {fileID: 2942581798049798597, guid: b352b07420526b748a525bc8513c4463, type: 3}
       propertyPath: m_LocalPosition.y
