@@ -17,6 +17,7 @@ public class SimpleMovement : MonoBehaviour
     private Rigidbody2D rig;
     [SerializeField] private CanvasGroup pauseMenu;
 
+    //lerp speed is there to make the player move smoother
     private float movementValue;
     [SerializeField] float lerpspeed;
 

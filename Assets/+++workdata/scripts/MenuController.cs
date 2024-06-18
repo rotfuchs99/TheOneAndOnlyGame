@@ -31,8 +31,9 @@ public class MenuController : MonoBehaviour
     {
         canvasGroupMain.ShowCanvasGroup();
         canvasGroupLevelSelection.HideCanvasGroup();
-
-        buttonNewGame.onClick.AddListener(StartNewGame); // AddListener "listens" if button was clicked
+        
+        // AddListener "listens" if button was clicked
+        buttonNewGame.onClick.AddListener(StartNewGame); 
         buttonBack.onClick.AddListener(BackToMain);
         buttonExit.onClick.AddListener(ExitGame);
         buttonSelectLevel.onClick.AddListener(ShowLevelSelection);
@@ -43,12 +44,16 @@ public class MenuController : MonoBehaviour
         buttonLevel4.onClick.AddListener(LoadLevel4);
         buttonLevel5.onClick.AddListener(LoadLevel5);
 
-        buttonLevel2.interactable = false; //same as deactivating interactability (checkmark) in unity //=is deactivated prior
-        if (PlayerPrefs.HasKey(sceneNamesLevel[1])) // HasKey checks if there's something saved by that name
+        //same as deactivating interactability (checkmark) in unity //=is deactivated prior
+        buttonLevel2.interactable = false; 
+        // HasKey checks if there's something saved by that name
+        if (PlayerPrefs.HasKey(sceneNamesLevel[1])) 
         {
-            if (PlayerPrefs.GetInt(sceneNamesLevel[1]) == 1) // ("==1" functions a bit ike "true" here -> int)
+            // ("==1" functions a bit ike "true" here -> int)
+            if (PlayerPrefs.GetInt(sceneNamesLevel[1]) == 1) 
             {
-                buttonLevel2.interactable = true;  //if scene 2 was loaded, level 2 button becomes interactable
+                //if scene 2 was loaded, level 2 button becomes interactable
+                buttonLevel2.interactable = true;  
             }
         }
 
@@ -80,13 +85,15 @@ public class MenuController : MonoBehaviour
         }    
     }
     
-    void StartNewGame() //LoadLevel1
+    
+    //LoadLevel1
+    void StartNewGame() 
     {
         SceneManager.LoadScene(sceneNamesLevel[0]);   //level 1 = 0, level 2 = 1, ...
     }
-    void LoadLevel1() //LoadLevel1
+    void LoadLevel1() 
     {
-        SceneManager.LoadScene(sceneNamesLevel[0]);   //level 1 = 0, level 2 = 1, ...
+        SceneManager.LoadScene(sceneNamesLevel[0]);  
         Debug.Log(true);
     }
 
@@ -109,15 +116,19 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneNamesLevel[4]);
     }
-    void ShowLevelSelection() //for level selection menu
+    
+    //for level selection menu
+    void ShowLevelSelection() 
     {
-        canvasGroupMain.HideCanvasGroup(); //hides main menu
+        //hides main menu
+        canvasGroupMain.HideCanvasGroup(); 
         canvasGroupLevelSelection.ShowCanvasGroup();
     }
 
     void ExitGame()
     {
-        Application.Quit(); //quits everything!
+        //quits everything
+        Application.Quit(); 
     }
 
     void BackToMain()

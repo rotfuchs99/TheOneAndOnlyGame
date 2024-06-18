@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class pausemenu : MonoBehaviour
 {
     private PlayerInput playercontrols;
-    //greifft auf das neue input system im "menu" ordner zu
+    
+    //has access to the new input system in the "menu" folder
     private InputAction menu;
 
     [SerializeField] private CanvasGroup pauseUI;
@@ -35,7 +36,7 @@ public class pausemenu : MonoBehaviour
 
     private void OnEnable()
     {
-        //spiel wird pausiert wenn das menu geöffnet wird 
+        //game will be paused, when menu is opened
         menu = playercontrols.Interactions.PauseMenu;
         menu.Enable();
 
@@ -63,21 +64,21 @@ public class pausemenu : MonoBehaviour
 
     void ActivateMenu()
     {
-        //zeit auf 0 und menu anzeigen
+        //time to 0 and showing the menu
         Time.timeScale = 0;
         pauseUI.ShowCanvasGroup();
     }
 
     public void DeactivateMenu()
     {
-        //zeit wieder auf 1 und menu ausschalten
+        //time back to 1 and hiding the menu
         Time.timeScale = 1;
         pauseUI.HideCanvasGroup();
         isPaused = false;
     }
     void backtomenu()
     {
-        //loadmainmenu
+        //load main menu
         SceneManager.LoadScene(nameMenuScene);
     }
 }

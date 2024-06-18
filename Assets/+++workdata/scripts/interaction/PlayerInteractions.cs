@@ -36,7 +36,7 @@ public class PlayerInteractions : MonoBehaviour
             //Debug.Log("you lost!");
             uiController.GameLost();
         }
-
+            //adds a coin if you reach one
         if (other.tag == "coin")
         {
             uiController.AddCoin();

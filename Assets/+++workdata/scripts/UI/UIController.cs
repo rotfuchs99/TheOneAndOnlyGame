@@ -8,6 +8,8 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
+    //serializedFields are there to see everything in the inspector
+    //so in the inspector you will see the canvas start, canvas win and all the other serialized fields you see beneath them
     [SerializeField] private CanvasGroup canvasStart;
     [SerializeField] private CanvasGroup canvasWin;
     [SerializeField] private CanvasGroup canvasLost;
@@ -19,6 +21,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button buttonNextLevel;
     [SerializeField] private Button buttonBackToMenu;
     
+    //the coincounter is there to count the coins you will collect throughout the gameplay
+    //the header is there, so you can see what you are working on in for example the scene loading area
     private int coincounter = 0;
     [SerializeField] private TextMeshProUGUI txtcoincount;
     
@@ -43,19 +47,24 @@ public class UIController : MonoBehaviour
         buttonNextLevel.onClick.AddListener(LoadNextLevel);
     }
 
+    
     void StartGame()
     {
         //set timescale back to normal
         Time.timeScale = 1f;
         canvasStart.HideCanvasGroup();
     }
-
+    
+    
+    //0 means that the time is stopped
     public void GameLost()
     {
         Time.timeScale = 0f;
         canvasLost.ShowCanvasGroup();
     }
-
+    
+    
+    //the screen for the next level is shown
     public void GameWin()
     {
         Time.timeScale = 0f;
@@ -63,11 +72,12 @@ public class UIController : MonoBehaviour
         canvasWin.ShowCanvasGroup();
     }
 
+    
     void LoadNextLevel()
     {
         SceneManager.LoadScene(nameNextLevel);
     }
-    
+    //This stands for a button that brings you back to the main menu
     void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -80,7 +90,7 @@ public class UIController : MonoBehaviour
     }
     
     
-
+    //as the game starts, the win canvas and the lost canvas are hidden, so the game can start, and the player ism't interrupted by other screens
     public void StartGameButton()
     {
         canvasStart.HideCanvasGroup();
@@ -90,8 +100,8 @@ public class UIController : MonoBehaviour
     
     public void AddCoin()
     {
-        //wenn coin eingesammlt dann wird er in dem panel zu den anderen hinzugefügt
-        coincounter++; //coincount++; same as coincount = coincount +1;
+        
+        coincounter++;
         txtcoincount.text = coincounter.ToString();
     }
 
