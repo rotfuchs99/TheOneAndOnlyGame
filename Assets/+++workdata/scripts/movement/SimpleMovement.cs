@@ -81,5 +81,12 @@ public class SimpleMovement : MonoBehaviour
         
         //Debug.Log("jump");
     }
-    
+
+    void OnPauseMenu()
+    {
+        if (Time.timeScale != 0)
+        {
+            
+        }
+    }
 }

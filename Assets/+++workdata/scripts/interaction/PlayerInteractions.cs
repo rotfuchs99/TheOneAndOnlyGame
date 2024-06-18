@@ -36,5 +36,12 @@ public class PlayerInteractions : MonoBehaviour
             //Debug.Log("you lost!");
             uiController.GameLost();
         }
+
+        if (other.tag == "coin")
+        {
+            uiController.AddCoin();
+            Destroy(other.gameObject);
+        }
+
     }
 }
